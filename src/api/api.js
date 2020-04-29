@@ -28,8 +28,8 @@ export const authAPI = {
 }
 
 export const articleAPI = {
-    addArticle: (title, content) => {
-        return createInstance().post('articles', {title, content});
+    addArticle: (title, content, image_url) => {
+        return createInstance().post('articles', {title, content, image_url});
     },
     getArticle: (articleId) => {
         return createInstance(false).get(`articles/${articleId}`);

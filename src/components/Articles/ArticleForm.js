@@ -18,10 +18,10 @@ const ArticleForm = (props) => {
         });
     }
 
-    const addArticle = (title, content) => {
+    const addArticle = (title, content, image_url) => {
         const page = props.currentPage;
         const pageSize = props.pageSize;
-        articleAPI.addArticle(title, content).then(response => {
+        articleAPI.addArticle(title, content, image_url).then(response => {
             if (isSuccessResponse(response)) {
                 getArticles(page, pageSize);
             }
@@ -29,7 +29,7 @@ const ArticleForm = (props) => {
     }
 
     const onSubmit = (formData) => {
-        addArticle(formData.title, formData.content);
+        addArticle(formData.title, formData.content, formData.image_url);
     };
 
     return <ArticleReduxForm buttonText={props.buttonText} onSubmit={onSubmit}/>;
@@ -45,3 +45,4 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleForm);
+

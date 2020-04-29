@@ -5,6 +5,7 @@ import Form from "./Form";
 const ArticleData = (props) => {
     return (
         <div>
+            {props.article.image_url && <img src={props.article.image_url}/>}
             <h5>{props.article.title}</h5>
             User: {props.article.user.username}
             <p>{props.article.content}</p>
